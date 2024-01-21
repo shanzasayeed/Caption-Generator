@@ -1,2 +1,13 @@
 flask
 sqlalchemy
+tensorflow
+keras
+matplotlib 
+opencv-python
+seaborn
+pandas
+numpy
+keras.layers.add
+
+
+

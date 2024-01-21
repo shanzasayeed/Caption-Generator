@@ -1,4 +1,4 @@
-from flask import Flask, render_template ,request,flash,session
+from flask import Flask, render_template ,request,flash,session,redirect
 from database import User,add_to_db,open_db 
 app = Flask(__name__)
 app.secret_key = 'thisissupersecretkeyfornoone'
