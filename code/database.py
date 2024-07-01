@@ -1,6 +1,6 @@
 from sqlalchemy.orm import declarative_base
 from sqlalchemy import create_engine
-from sqlalchemy import Column,Integer,String,DateTime
+from sqlalchemy import Column,Integer,String,DateTime, ForeignKey
 from datetime import datetime
 from sqlalchemy.orm import sessionmaker
 Base=declarative_base()
@@ -15,6 +15,32 @@ class User(Base):
 
     def __str__(self):
         return self.username
+
+class Upload(Base):
+    __tablename__='uploads'
+    id=Column(Integer,primary_key=True)
+    title=Column(String(50),nullable=False)
+    description=Column(String(100))
+    file_path=Column(String(100))
+    created_at=Column(DateTime, default=datetime.now)
+    user_id= Column(Integer, ForeignKey('users.id'))
+
+    def __str__(self):
+        return self.title
+    
+
+class ChatMessage(Base):
+    __tablename__='chat_messages'
+    id=Column(Integer,primary_key=True)
+    message=Column(String(100))
+    response=Column(String(100))
+    upload = Column(Integer, ForeignKey('uploads.id'))
+    created_at=Column(DateTime, default=datetime.now)
+    user_id= Column(Integer, ForeignKey('users.id'))
+    
+    def __str__(self):
+        return self.message
+    
 
 def open_db():
     engine=create_engine('sqlite:///project.db',echo=True)    

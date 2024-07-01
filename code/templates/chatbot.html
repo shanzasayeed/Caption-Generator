@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <img src="/static/uploads/{{ image.file_path }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="chat/{{ image.id }}" class="btn btn-primary">Interact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Generate Caption or ask a question</label>
+                        <input type="text" class="form-control" name="query" id="" aria-describedby="helpId"
+                            placeholder="" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                {% if caption %}
+                <div class="caption">
+                    <h3>Generated Caption</h3>
+                    <p>{{ caption }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}

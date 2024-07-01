@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-">
     <title>Interactive Image Caption Generator</title>
@@ -17,51 +18,69 @@
             padding: 0;
             overflow: hidden;
         }
+
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay to enhance readability */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Dark overlay to enhance readability */
         }
+
         .container {
             text-align: center;
-            background-color: #fff; /* White background */
+            background-color: #fff;
+            /* White background */
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 20px 0px rgba(253, 253, 253, 0.1);
             position: relative;
             animation: slide-in 0.5s ease-out forwards;
-            max-width: 400px; /* Set maximum width */
-            width: 100%; /* Ensure responsiveness */
+            max-width: 400px;
+            /* Set maximum width */
+            width: 100%;
+            /* Ensure responsiveness */
         }
+
         .heading-container {
-            background-color: #f2f6f9; /* Light gray background */
+            background-color: #f2f6f9;
+            /* Light gray background */
             border-radius: 10px 10px 0 0;
             padding: 20px 0;
-            margin-bottom: 20px; /* Add margin between heading and form */
+            margin-bottom: 20px;
+            /* Add margin between heading and form */
         }
+
         h1 {
             font-size: 2.5rem;
             color: #171c17;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin: 0; /* Remove default margin */
-            text-decoration: none; /* Remove underline */
+            margin: 0;
+            /* Remove default margin */
+            text-decoration: none;
+            /* Remove underline */
         }
+
         form {
             margin-bottom: 20px;
         }
+
         form input[type="text"],
-        form input[type="password"] {
+        form input[type="password"],
+        form input[type="email"] {
             padding: 10px;
             border: 1px solid #8abad0;
             border-radius: 5px;
             font-size: 1rem;
             margin-bottom: 10px;
-            width: calc(100% - 22px); /* Adjusted width to include padding */
-            margin-right: 10px; /* Add margin for spacing */
+            width: calc(100% - 22px);
+            /* Adjusted width to include padding */
+            margin-right: 10px;
+            /* Add margin for spacing */
         }
+
         form button {
             padding: 10px 20px;
             background-color: #199780;
@@ -71,11 +90,14 @@
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-bottom: 5px; /* Decrease margin between button and input */
+            margin-bottom: 5px;
+            /* Decrease margin between button and input */
         }
+
         form button:hover {
             background-color: #3c3e40;
         }
+
         .caption {
             font-size: 1.2rem;
             color: #0f100f;
@@ -84,6 +106,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="overlay"></div>
     <div class="container">
@@ -91,12 +114,13 @@
             <h1>Register</h1>
         </div>
         <form action="/register" method="post">
-            <input type="text" name="name" placeholder="Name" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
             <input type="text" name="username" placeholder="Username" required><br>
             <input type="password" name="password" placeholder="Password" required><br>
-            <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+            <input type="password" name="cpassword" placeholder="Confirm Password" required><br>
             <button type="submit">Register</button>
         </form>
     </div>
 </body>
+
 </html>

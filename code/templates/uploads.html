@@ -1,0 +1,42 @@
+
+
+
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<section>
+    <div class="container mb-3">
+        <div class="heading-container">
+            <h1>Upload Image</h1>
+        </div>
+        <form method="post" enctype="multipart/form-data" action="/upload">
+            <div class="form-group mb-3">
+                <input type="file" name="image" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="heading-container">
+            <h1>Uploaded Images</h1>
+        </div>
+        <div class="row">
+            {% for image in uploads %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <img src="/static/uploads/{{ image.file_path }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a href="chat/{{ image.id }}" class="btn btn-primary mb-2">Interact</a>
+                        <form method="post" action="/delete/{{ image.id }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
